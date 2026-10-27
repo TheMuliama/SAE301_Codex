@@ -1,0 +1,3 @@
+-r requirements.txt
+pyadi-iio==0.0.21
+

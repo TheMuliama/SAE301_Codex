@@ -1,0 +1,30 @@
+Date: 2026-10-27
+OS: Linux 6.17.0-19-generic x86_64 GNU/Linux
+Python: 3.12.3
+
+Current development environment (relevant packages):
+numpy==2.5.4
+pytest==9.1.1
+ruff==0.11.13
+mypy==1.16.1
+pyadi-iio==0.0.21
+pylibiio==1.0
+sae301-qpsk==0.1.0
+
+Clean-install environment created by scripts/setup.sh:
+numpy==2.2.6
+pytest==8.3.5
+ruff==0.11.13
+mypy==1.16.1
+sae301-qpsk==0.1.0
+
+Clean-install verification:
+- python -m sae301 check --mode simulation: PASS
+- python -m pytest -q: 47 passed in 1.45s
+- python -m ruff check .: PASS
+- python -m mypy sae301 (target Python 3.10): PASS, 14 source files
+
+Hardware diagnostic:
+- PyADI-IIO/libiio load: FAIL, libiio version 1.x required but version 0 detected
+- Physical ADALM-Pluto: NOT TESTED
+- RF transmission: NOT REQUESTED / NOT TESTED

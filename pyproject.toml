@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=75,<82"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sae301-qpsk"
+version = "0.1.0"
+description = "Liaison QPSK DATA/ACK entre deux ADALM-Pluto pour la SAÉ 3.01"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<3"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10",
+  "ruff>=0.8,<1",
+  "mypy>=1.13,<2",
+]
+pluto = ["pyadi-iio==0.0.21"]
+
+[project.scripts]
+sae301 = "sae301.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sae301*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = ["hardware: requires an attached ADALM-Pluto and explicit RF authorization"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_configs = true
+check_untyped_defs = true
+no_implicit_optional = true
+packages = ["sae301"]
+
+[[tool.mypy.overrides]]
+module = ["adi", "adi.*"]
+ignore_missing_imports = true

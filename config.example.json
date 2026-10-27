@@ -1,0 +1,30 @@
+{
+  "ack_timeout_seconds": 3.0,
+  "maximum_payload_bytes": 1024,
+  "ack_turnaround_seconds": 0.08,
+  "dsp": {
+    "samples_per_symbol": 8,
+    "rrc_rolloff": 0.35,
+    "rrc_span_symbols": 8,
+    "sync_threshold": 0.72
+  },
+  "radio": {
+    "carrier_frequency_hz": 868000000,
+    "sample_rate_hz": 1000000,
+    "rf_bandwidth_hz": 500000,
+    "tx_gain_db": -30.0,
+    "rx_gain_db": 30.0,
+    "rx_buffer_size": 65536,
+    "uri": "ip:192.168.2.1"
+  },
+  "simulation": {
+    "bind_host": "127.0.0.1",
+    "bind_port": 9000,
+    "peer_host": "127.0.0.1",
+    "peer_port": 9001,
+    "noise_snr_db": null,
+    "phase_offset_deg": 0.0,
+    "timing_offset_samples": 0,
+    "random_seed": 301
+  }
+}

@@ -1,0 +1,28 @@
+Date: 2026-10-27
+Environment: Linux, Python 3.12.3
+
+Receiver command:
+.venv/bin/python -u -m sae301 receiver --mode simulation --once
+
+Receiver output:
+Simulation transport ready.
+Listening for messages...
+
+Message received: Bonjour depuis le processus A 🌋
+CRC verification: PASSED
+ACK transmitted.
+
+Transmitter command:
+.venv/bin/python -u -m sae301 transmitter --mode simulation --message 'Bonjour depuis le processus A 🌋'
+
+Transmitter output:
+Simulation transport ready.
+Ready to transmit.
+Encoding message...
+Transmitting QPSK signal...
+Waiting for acknowledgment...
+ACK received.
+Message successfully delivered.
+
+Scope: UDP loopback simulation carrying complex64 I/Q. No SDR hardware or RF transmission.
+
